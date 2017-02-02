@@ -17,7 +17,9 @@
 //= require_tree .
 document.addEventListener("turbolinks:load", function() {
   tinymce.remove();
-  tinymce.init({ selector: 'textarea#post_body',
+  tinymce.init({
+  height: '475',  
+  selector: 'textarea#post_body',
   plugins: "codesample image media link",
   toolbar: "undo redo | stylesheet | bold italic link | codesample | image | media"
   });

@@ -13,29 +13,57 @@
 
   <div class="row">
     <div class="col-md-3">
-      <div class="field">
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-      </div>
 
-      <div class="field">
-        <%= f.label :banner_image_url %>
-        <%= f.text_field :banner_image_url %>
-      </div>
+      <div class="card">
+          <div class="card-block">
+            <% if @post.new_record? %>
+            <h4 class="card-title">New Post</h4>
+            <% else %>
+            <h4 class="card-title"></h4>
+              <b>Edit</b>
+              <span class="thin-text"><%= @post.title %></span>
+            <% end %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="field">
+                <%= f.label :title %>
+                <%= f.text_field :title, class: 'form-control' %>
+              </div>
+            </li>
 
-      <div class="field">
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-      </div>
+            <li class="list-group-item">
+              <div class="field">
+                <%= f.label :banner_image_url %>
+                <%= f.text_field :banner_image_url, class: 'form-control' %>
+              </div>
+            </li>
 
+            <li class="list-group-item">
+              <div class="field">
+                <%= f.label :description %>
+                <%= f.text_area :description, class: 'form-control' %>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="actions">
+                  <%= f.submit "Save Changes", class: 'btn btn-success btn-lg btn-block'%>
+                </div>
+            </li>
+          </ul>
+      </div>
+      <% if @post.persisted? %>
+        <%= link_to 'Show', @post %> |
+      <% end %>
+        <%= link_to 'Back', authors_posts_path %>
     </div>
     <div class="col-md-9">
 
       <div class="field">
-        <%= f.label :body %>
         <%= f.text_area :body %>
       </div>
-      
+
     </div>
   </div>
 
@@ -43,7 +71,4 @@
 
 
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
