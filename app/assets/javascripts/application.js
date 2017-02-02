@@ -17,5 +17,8 @@
 //= require_tree .
 document.addEventListener("turbolinks:load", function() {
   tinymce.remove();
-  tinymce.init({ selector: 'textarea#post_body' });
+  tinymce.init({ selector: 'textarea#post_body',
+  plugins: "codesample image media link",
+  toolbar: "undo redo | stylesheet | bold italic link | codesample | image | media"
+  });
 })
